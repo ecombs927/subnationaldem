@@ -1,0 +1,31 @@
+---
+title: "Final Week"
+format: revealjs
+---
+
+```{r}
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+load('SDI.RData')
+
+df <- data_sdi |>
+  filter(region_name == 'CENTRO')
+```
+
+# Analysis Slide
+
+```{r}
+df |>
+  ggplot(aes(x = year, y = SUR_index_sub_exe, color = state_name)) +
+  geom_line() +
+  labs(
+    x = 'Year',
+    y = 'Level of Democracy',
+    color = 'State'
+  ) +
+  theme_classic()
+```
+
+
